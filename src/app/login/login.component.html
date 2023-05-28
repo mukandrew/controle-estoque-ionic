@@ -1,0 +1,36 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>Login</ion-title>
+  </ion-toolbar>
+</ion-header>
+<ion-content [fullscreen]="true" class="ion-padding">
+  <form (submit)="login()">
+    <ion-input
+      label="E-mail"
+      type="email"
+      [(ngModel)]="email"
+      [ngModelOptions]="{ standalone: true }"
+      placeholder="your@email.here"
+      [required]="true"
+      fill="solid"
+      label-placement="floating"
+    ></ion-input>
+    <ion-input
+      label="Password"
+      type="password"
+      [(ngModel)]="password"
+      [ngModelOptions]="{ standalone: true }"
+      placeholder="********"
+      [required]="true"
+      fill="solid"
+      label-placement="floating"
+    ></ion-input>
+    <ion-button type="submit" expand="block">Entrar</ion-button>
+    <ion-toast
+      [isOpen]="isToastOpen"
+      [message]="toastMessage"
+      [duration]="5000"
+      (didDismiss)="setOpen(false)"
+    ></ion-toast>
+  </form>
+</ion-content>

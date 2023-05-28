@@ -1,0 +1,44 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button default-href="#" (click)="back()"></ion-back-button>
+    </ion-buttons>
+    <ion-title>Detalhe do Produto</ion-title>
+    <ion-buttons *ngIf="showBtnDelete" slot="end">
+      <ion-button (click)="deleteProduct()">Apagar</ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-list>
+    <ion-item>
+      <ion-label>ID</ion-label>
+      <ion-input [(ngModel)]="product.id" [disabled]="true"></ion-input>
+    </ion-item>
+
+    <ion-item>
+      <ion-label>Nome</ion-label>
+      <ion-input [(ngModel)]="product.name"></ion-input>
+    </ion-item>
+
+    <ion-item>
+      <ion-label>Preço</ion-label>
+      <ion-input [(ngModel)]="product.price"></ion-input>
+    </ion-item>
+
+    <ion-item>
+      <ion-label>Quantidade</ion-label>
+      <ion-input [(ngModel)]="product.quantity"></ion-input>
+    </ion-item>
+  </ion-list>
+
+  <ion-button (click)="saveProduct()">Save</ion-button>
+
+  <ion-toast
+    [isOpen]="isToastOpen"
+    [message]="toastMessage"
+    [duration]="5000"
+    (didDismiss)="setOpen(false)"
+  ></ion-toast>
+</ion-content>
